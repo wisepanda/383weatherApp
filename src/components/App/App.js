@@ -9,6 +9,7 @@ function App() {
   const [current, setCurrent] = useState('');
   const [weekly, setWeekly] = useState('');
   const [fetchError, setFetchError] = useState('');
+  const [cityName, setCityName] = useState(``)
 
   const fetchData = async (city) => {
     try {
@@ -23,6 +24,8 @@ function App() {
       );
       const Data = await res.json();
       setCurrent(Data.current);
+	  setCityName(city)
+	  console.log(`curren data`, current)
       setWeekly(Data.daily);
     } catch (error) {
       setFetchError(`City doesn't exist`);
@@ -33,7 +36,7 @@ function App() {
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
       <SearchBar fetchData={fetchData} />
-      {current && <Card />}
+      {current && <Card cityName={cityName} />}
       {/* <Card />
 			<WeekList /> */}
     </div>
