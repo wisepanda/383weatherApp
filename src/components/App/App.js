@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
-      <SearchBar fetchData={fetchData} />
+      <SearchBar fetchData={fetchData} fetchError={fetchError} />
       {current && <Card />}
       {/* <Card />
 			<WeekList /> */}
