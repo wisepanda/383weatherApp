@@ -1,4 +1,7 @@
 .App {
-	max-width: 800px;
-	margin: auto;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 92%;
 }

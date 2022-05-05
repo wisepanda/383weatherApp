@@ -31,9 +31,9 @@ const Card = ({
       <div onClick={expandCard} className="card" id={id}>
         <p>{day && getUnixTime(day)}</p>
         {cityName && <h1>{cityName}</h1>}
-        {temperature && <h1>{temperature} °C</h1>}
-        {temperatureMin && <p>Min: {temperatureMin} °C</p>}
-        {temperatureMax && <p>Min: {temperatureMax} °C</p>}
+        {temperature && <h1>{temperature.toFixed(0)} °C</h1>}
+        {temperatureMin && <p>Min: {temperatureMin.toFixed(0)} °C</p>}
+        {temperatureMax && <p>Min: {temperatureMax.toFixed(0)} °C</p>}
 
         {/* <img src={icon} alt="weather icon" /> */}
       </div>
