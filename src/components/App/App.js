@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 //Components
-// import Card from '../Card';
+import Card from '../Card';
 import SearchBar from '../SearchBar';
 // import WeekList from '../WeekList';
 
@@ -13,13 +13,13 @@ function App() {
   const fetchData = async (city) => {
     try {
       const cityCoordinates = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=f9c0898eeee0f76ed20293b748929eca`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=4b6e93d558237270549de87a4606266d`
       );
       const coordinatesData = await cityCoordinates.json();
       const lon = coordinatesData.coord.lon;
       const lat = coordinatesData.coord.lat;
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=f9c0898eeee0f76ed20293b748929eca`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=4b6e93d558237270549de87a4606266d`
       );
       const Data = await res.json();
       setCurrent(Data.current);
@@ -33,6 +33,7 @@ function App() {
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
       <SearchBar fetchData={fetchData} />
+      {current && <Card />}
       {/* <Card />
 			<WeekList /> */}
     </div>

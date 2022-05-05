@@ -15,7 +15,7 @@ const SearchBar = ({ fetchData }) => {
   return (
     <div className="searchbar">
       <input type="text" placeholder="Enter city name" onChange={handleInput} />
-      <button onClick={handleClick}>Search</button>
+      <button onClick={() => handleClick()}>Search</button>
     </div>
   );
 };
