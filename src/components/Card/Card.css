@@ -1,10 +1,12 @@
 .card {
-  height: 20vh;
   width: 100%;
-  background-color: white;
+  background-color: #43affc;
+  color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin: 1rem 0;
+  border-radius: 10px;
+  cursor: pointer;
 }
