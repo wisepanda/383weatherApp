@@ -32,7 +32,6 @@ function App() {
 			setFetchError(`City doesn't exist`);
 		}
 	};
-
 	return (
 		<div className="App">
 			{fetchError && <h3>{fetchError}</h3>}
