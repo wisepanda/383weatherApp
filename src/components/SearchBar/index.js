@@ -1,16 +1,15 @@
 import './searchbar.css';
 import { useState } from 'react';
 
-const SearchBar = ({ setLocation }) => {
+const SearchBar = ({ fetchData }) => {
   const [userInput, setUserInput] = useState('');
 
   function handleInput(e) {
     setUserInput(e.target.value);
-    console.log(e.target.value);
   }
 
   function handleClick() {
-    setLocation(userInput);
+    fetchData(userInput);
   }
 
   return (
