@@ -1,20 +1,24 @@
-import "./searchbar.css";
-import { useState } from "react";
+import './searchbar.css';
+import { useState } from 'react';
 
-const SearchBar = ({ setLocation, handleClick }) => {
-	const [userInput, setUserInput] = useState("");
+const SearchBar = ({ setLocation }) => {
+  const [userInput, setUserInput] = useState('');
 
-	function handleInput(e) {
-		setUserInput(e.target.value);
-		console.log(e.target.value);
-	}
+  function handleInput(e) {
+    setUserInput(e.target.value);
+    console.log(e.target.value);
+  }
 
-	return (
-		<div className="searchbar">
-			<input type="text" placeholder="Enter city name" onChange={handleInput} />
-			<button onClick={(e) => handleClick(userInput)}>Search</button>
-		</div>
-	);
+  function handleClick() {
+    setLocation(userInput);
+  }
+
+  return (
+    <div className="searchbar">
+      <input type="text" placeholder="Enter city name" onChange={handleInput} />
+      <button onClick={handleClick}>Search</button>
+    </div>
+  );
 };
 
 export default SearchBar;
