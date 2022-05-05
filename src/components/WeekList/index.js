@@ -1,5 +1,4 @@
 import './weeklist.css';
-import { useState } from 'react';
 import Card from '../Card/index.js';
 export default function WeekList({ weekly }) {
   return (
