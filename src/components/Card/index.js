@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Card.css';
 
 const Card = ({
@@ -6,13 +7,18 @@ const Card = ({
   day,
   temperatureMax,
   temperatureMin,
-  expandCard,
-  dropdown,
+
   id,
   humidity,
   feelslike,
   description,
 }) => {
+  const [dropdown, setdropdown] = useState(false);
+
+  const expandCard = () => {
+    setdropdown(!dropdown);
+  };
+
   const getUnixTime = (timestamp) => {
     const milliseconds = timestamp * 1000;
     const dateObject = new Date(milliseconds);
