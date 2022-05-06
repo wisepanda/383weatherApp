@@ -13,9 +13,10 @@ const Card = ({
   description,
   currentSunset,
   currentSunrise,
+  currentWeather,
 }) => {
   const [dropdown, setdropdown] = useState(false);
-
+  console.log(currentWeather);
   const expandCard = () => {
     setdropdown(!dropdown);
   };
@@ -37,7 +38,7 @@ const Card = ({
 
   return (
     <>
-      <div onClick={expandCard} className="card" id={id}>
+      <div onClick={expandCard} className={`card ${currentWeather}`} id={id}>
         {day && getUnixTime(day)}
         <div className="city-temp-wrapper">
           {cityName && <h1>{cityName}</h1>}
@@ -53,7 +54,15 @@ const Card = ({
             </div>
           </div>
         </div>
-        <div className="icon">ICONO</div>
+        <div className="icon-wrapper">
+          <img
+            src={`icons/${currentWeather}.svg`}
+            alt=""
+            srcset=""
+            width="100px"
+          />
+          <h4>{currentWeather}</h4>
+        </div>
 
         {temperatureMin && <p>Min: {temperatureMin.toFixed(0)} °C</p>}
         {temperatureMax && <p>Min: {temperatureMax.toFixed(0)} °C</p>}

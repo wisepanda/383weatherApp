@@ -26,12 +26,12 @@ function App() {
       setCurrent(Data.current);
       setCityName(city);
       setWeekly(Data.daily);
-      console.log(weekly);
     } catch (error) {
       setFetchError(`City doesn't exist`);
     }
   };
-  console.log(current.sunset);
+
+  console.log(current);
   return (
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
@@ -42,6 +42,7 @@ function App() {
           temperature={current.temp}
           currentSunset={current.sunset}
           currentSunrise={current.sunrise}
+          currentWeather={current.weather[0].main}
         />
       )}
 
