@@ -11,7 +11,7 @@ const Card = ({
   description,
 }) => {
   const [dropdown, setdropdown] = useState(false);
-  const { dt, sunrise, sunset, weather } = weekday;
+  const { dt, sunrise, sunset, weather, temp } = weekday;
   const weatherDescription = weather[0].main;
   const expandCard = () => {
     setdropdown(!dropdown);
@@ -21,14 +21,14 @@ const Card = ({
     const milliseconds = timestamp * 1000;
     const dateObject = new Date(milliseconds);
     const time = dateObject.toString().split(' ');
-    return time.slice(0, 3).join(' ');
+    return `${time.slice(0, 1)} ${time.slice(2, 3)}`;
   };
 
   const getUnixHour = (timestamp) => {
     const milliseconds = timestamp * 1000;
     const dateObject = new Date(milliseconds);
     const time = dateObject.toString().split(' ');
-    const removeSeconds = time[4]?.split('').slice(0, 5).join('');
+    const removeSeconds = time[4]?.split('').slice(0, 5);
     return removeSeconds;
   };
 
@@ -41,6 +41,10 @@ const Card = ({
       >
         <div className="date-wrapper">
           <h1>{getUnixTime(dt)}</h1>
+          <div className="sets-wrapper">
+            <h4>{`Max: ${temp.max.toFixed(0)}°C`}</h4>
+            <h4 className="temp-min">{`Min: ${temp.min.toFixed(0)}°C`}</h4>
+          </div>
           <div className="sets-wrapper">
             <div className="sunrise-wrapper">
               <div>Sunrise </div>
