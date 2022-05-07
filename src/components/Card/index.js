@@ -3,7 +3,6 @@ import './Card.css';
 
 const Card = ({
   weekday,
-  day,
   temperatureMax,
   temperatureMin,
   id,
@@ -12,7 +11,6 @@ const Card = ({
   description,
 }) => {
   const [dropdown, setdropdown] = useState(false);
-  console.log(weekday);
   const { dt, sunrise, sunset, weather } = weekday;
   const weatherDescription = weather[0].main;
   const expandCard = () => {
@@ -41,8 +39,8 @@ const Card = ({
         className={`card ${weatherDescription}`}
         id={id}
       >
-        {getUnixTime(dt)}
-        <div className="city-temp-wrapper">
+        <div className="date-wrapper">
+          <h1>{getUnixTime(dt)}</h1>
           <div className="sets-wrapper">
             <div className="sunrise-wrapper">
               <div>Sunrise </div>
@@ -54,6 +52,8 @@ const Card = ({
             </div>
           </div>
         </div>
+
+        <div className="city-temp-wrapper"></div>
         <div className="icon-wrapper">
           <img
             src={`icons/${weatherDescription}.svg`}

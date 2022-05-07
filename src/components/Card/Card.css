@@ -55,3 +55,11 @@
 .icon-wrapper h4 {
   margin: 0.8rem 0 0 0;
 }
+
+.date-wrapper {
+  padding: 1.5rem;
+}
+
+.date-wrapper h1 {
+  margin: 0;
+}
