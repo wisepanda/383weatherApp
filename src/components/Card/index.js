@@ -2,8 +2,7 @@ import { useState } from 'react';
 import './Card.css';
 
 const Card = ({
-  cityName,
-  temperature,
+  weekday,
   day,
   temperatureMax,
   temperatureMin,
@@ -11,12 +10,11 @@ const Card = ({
   humidity,
   feelslike,
   description,
-  currentSunset,
-  currentSunrise,
-  currentWeather,
 }) => {
   const [dropdown, setdropdown] = useState(false);
-  console.log(currentWeather);
+  console.log(weekday);
+  const { dt, sunrise, sunset, weather } = weekday;
+  const weatherDescription = weather[0].main;
   const expandCard = () => {
     setdropdown(!dropdown);
   };
@@ -38,32 +36,31 @@ const Card = ({
 
   return (
     <>
-      <div onClick={expandCard} className={`card ${currentWeather}`} id={id}>
-        {day && getUnixTime(day)}
+      <div
+        onClick={expandCard}
+        className={`card ${weatherDescription}`}
+        id={id}
+      >
+        {getUnixTime(dt)}
         <div className="city-temp-wrapper">
-          {cityName && <h1>{cityName}</h1>}
-          {temperature && <h1>{temperature.toFixed(0)} °C</h1>}
           <div className="sets-wrapper">
             <div className="sunrise-wrapper">
               <div>Sunrise </div>
-              <div>{getUnixHour(currentSunrise)}</div>
+              <div>{getUnixHour(sunrise)}</div>
             </div>
             <div className="sunrise-wrapper">
               <div>Sunset</div>
-              <div>{getUnixHour(currentSunset)}</div>
+              <div>{getUnixHour(sunset)}</div>
             </div>
           </div>
         </div>
         <div className="icon-wrapper">
           <img
-            src={`icons/${currentWeather}.svg`}
-            alt=""
-            srcset=""
+            src={`icons/${weatherDescription}.svg`}
+            alt={weatherDescription}
             width="100px"
           />
-          <h4>{currentWeather}</h4>
         </div>
-
         {temperatureMin && <p>Min: {temperatureMin.toFixed(0)} °C</p>}
         {temperatureMax && <p>Min: {temperatureMax.toFixed(0)} °C</p>}
       </div>

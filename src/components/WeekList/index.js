@@ -1,21 +1,12 @@
 import './weeklist.css';
 import Card from '../Card/index.js';
 export default function WeekList({ weekly }) {
+  console.log(weekly);
   return (
     <div className="weeklist">
       <h2> Weekly weather</h2>
       {weekly.map((weekday, index) => {
-        return (
-          <Card
-            id={index}
-            day={weekday.dt}
-            temperatureMax={weekday.temp.max}
-            temperatureMin={weekday.temp.min}
-            humidity={weekday.humidity}
-            feelslike={weekday.feels_like.day}
-            description={weekday.weather[0].description}
-          />
-        );
+        return <Card id={index} weekday={weekday} />;
       })}
     </div>
   );
