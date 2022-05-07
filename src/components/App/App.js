@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 //Components
-import Card from '../Card';
+import CurrentCard from '../CurrentCard';
 import SearchBar from '../SearchBar';
 import WeekList from '../WeekList';
 
@@ -31,21 +31,11 @@ function App() {
     }
   };
 
-  console.log(current);
   return (
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
       <SearchBar fetchData={fetchData} />
-      {current && (
-        <Card
-          cityName={cityName}
-          temperature={current.temp}
-          currentSunset={current.sunset}
-          currentSunrise={current.sunrise}
-          currentWeather={current.weather[0].main}
-        />
-      )}
-
+      {current && <CurrentCard currentWeather={current} cityName={cityName} />}
       <WeekList weekly={weekly} />
     </div>
   );
