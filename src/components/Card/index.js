@@ -58,8 +58,9 @@ const Card = ({
           <img
             src={`icons/${weatherDescription}.svg`}
             alt={weatherDescription}
-            width="100px"
+            width="60px"
           />
+          <p>{weatherDescription}</p>
         </div>
         {temperatureMin && <p>Min: {temperatureMin.toFixed(0)} °C</p>}
         {temperatureMax && <p>Min: {temperatureMax.toFixed(0)} °C</p>}
