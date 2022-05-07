@@ -23,9 +23,10 @@ function App() {
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=4b6e93d558237270549de87a4606266d`
       );
       const Data = await res.json();
+      setFetchError('');
       setCurrent(Data.current);
       setCityName(city);
-      setWeekly(Data.daily);
+      setWeekly(Data.daily.filter((data, index) => index !== 0));
     } catch (error) {
       setFetchError(`City doesn't exist`);
     }
