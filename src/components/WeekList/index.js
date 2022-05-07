@@ -5,7 +5,7 @@ export default function WeekList({ weekly }) {
     <div className="weeklist">
       <h2> Weekly weather</h2>
       {weekly.map((weekday, index) => {
-        return <Card id={index} weekday={weekday} />;
+        return <Card key={index} weekday={weekday} />;
       })}
     </div>
   );

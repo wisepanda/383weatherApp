@@ -3,9 +3,9 @@ import './Card.css';
 
 const Card = ({
   weekday,
+  id,
   temperatureMax,
   temperatureMin,
-  id,
   humidity,
   feelslike,
   description,
@@ -34,11 +34,7 @@ const Card = ({
 
   return (
     <>
-      <div
-        onClick={expandCard}
-        className={`card ${weatherDescription}`}
-        id={id}
-      >
+      <div onClick={expandCard} className={`card ${weatherDescription}`}>
         <div className="date-wrapper">
           <h1>{getUnixTime(dt)}</h1>
           <div className="sets-wrapper">

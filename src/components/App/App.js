@@ -32,8 +32,6 @@ function App() {
     }
   };
 
-  console.log(current);
-
   return (
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
