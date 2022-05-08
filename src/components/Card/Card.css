@@ -1,14 +1,12 @@
 .card {
-  width: 100%;
-
   color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   margin: 1rem 0;
   border-radius: 10px;
   cursor: pointer;
+  width: 100%;
 }
 
 .Clear {
@@ -50,6 +48,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
@@ -70,4 +69,13 @@ h5 {
 .temp-min {
   margin-left: 0.5rem;
   color: #dfdfdf;
+}
+
+.expandedCard {
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

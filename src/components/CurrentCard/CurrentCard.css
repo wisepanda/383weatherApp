@@ -1,6 +1,5 @@
-.card {
+.cardCurrent {
   width: 100%;
-
   color: white;
   display: flex;
   flex-direction: row;

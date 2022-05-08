@@ -20,7 +20,7 @@ const CurrentCard = ({ currentWeather, cityName }) => {
 
   return (
     <>
-      <div onClick={expandCard} className={`card ${weatherDescription}`}>
+      <div onClick={expandCard} className={`cardCurrent ${weatherDescription}`}>
         <div className="city-temp-wrapper">
           <h1>{cityName}</h1>
           <h1>{temp.toFixed(0)}°C</h1>
