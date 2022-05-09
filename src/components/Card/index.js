@@ -3,7 +3,6 @@ import './Card.css';
 
 const Card = ({
   weekday,
-  id,
   temperatureMax,
   temperatureMin,
   humidity,
@@ -66,7 +65,7 @@ const Card = ({
           {temperatureMax && <p>Min: {temperatureMax.toFixed(0)} °C</p>}
         </div>
         {dropdown && (
-          <div className={`expandedCard`}>
+          <div className="expandedCard">
             <h3>{`${description}`}</h3>
             <p>{`humidity:${humidity}%`}</p>
             <p>{`Feels like:${feelslike} °C`}</p>

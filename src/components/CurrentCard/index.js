@@ -10,12 +10,11 @@ const CurrentCard = ({ currentWeather, cityName }) => {
     setdropdown(!dropdown);
   };
 
-  const getUnixHour = (timestamp) => {
+  const getTime = (timestamp) => {
     const milliseconds = timestamp * 1000;
     const dateObject = new Date(milliseconds);
     const time = dateObject.toString().split(' ');
-    const removeSeconds = time[4]?.split('').slice(0, 5).join('');
-    return removeSeconds;
+    return time[4]?.split('').slice(0, 5);
   };
 
   return (
@@ -27,11 +26,11 @@ const CurrentCard = ({ currentWeather, cityName }) => {
           <div className="sets-wrapper">
             <div className="sunrise-wrapper">
               <div>Sunrise </div>
-              <div>{getUnixHour(sunrise)}</div>
+              <div>{getTime(sunrise)}</div>
             </div>
             <div className="sunrise-wrapper">
               <div>Sunset</div>
-              <div>{getUnixHour(sunset)}</div>
+              <div>{getTime(sunset)}</div>
             </div>
           </div>
         </div>
