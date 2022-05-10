@@ -14,15 +14,16 @@ function App() {
   const fetchData = async (city) => {
     try {
       const cityCoordinates = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=4b6e93d558237270549de87a4606266d`
+        `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       );
       const coordinatesData = await cityCoordinates.json();
       const lon = coordinatesData.coord.lon;
       const lat = coordinatesData.coord.lat;
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=4b6e93d558237270549de87a4606266d`
+        `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`
       );
       const Data = await res.json();
+      /* Cleaning the state of fetchError. */
       setFetchError('');
       setCurrent(Data.current);
       setCityName(city);
