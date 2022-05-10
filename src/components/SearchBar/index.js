@@ -3,13 +3,15 @@ import { useState } from 'react';
 //Styles
 import './searchbar.css';
 
-const SearchBar = ({ fetchData }) => {
+const SearchBar = ({ fetchData, setFetchError }) => {
   const [userInput, setUserInput] = useState('');
 
   const handleInput = (e) => setUserInput(e.target.value);
 
   const handleClick = () => {
-    fetchData(userInput);
+    !userInput
+      ? setFetchError('The field cant be empty')
+      : fetchData(userInput);
     setUserInput('');
   };
 

@@ -30,7 +30,7 @@ const CurrentCard = ({ currentWeather, cityName }) => {
             </div>
           </div>
         </div>
-        <div className="icon-wrapper">
+        <div className="icon-wrapper-current">
           <img
             src={`icons/${weatherDescription}.svg`}
             alt={weather[0].main}

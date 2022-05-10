@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       {fetchError && <h3>{fetchError}</h3>}
-      <SearchBar fetchData={fetchData} />
+      <SearchBar fetchData={fetchData} setFetchError={setFetchError} />
       {current && <CurrentCard currentWeather={current} cityName={cityName} />}
       <WeekList weekly={weekly} />
     </div>
