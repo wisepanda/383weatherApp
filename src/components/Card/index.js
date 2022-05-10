@@ -1,4 +1,7 @@
+//Libraries
 import { useState } from 'react';
+import { getTime, getWeekDay } from '../../libs/dates';
+//Styles
 import './Card.css';
 
 const Card = ({
@@ -14,20 +17,6 @@ const Card = ({
   const weatherDescription = weather[0].main;
   const expandCard = () => {
     setdropdown(!dropdown);
-  };
-
-  const getWeekDay = (timestamp) => {
-    const milliseconds = timestamp * 1000;
-    const dateObject = new Date(milliseconds);
-    const time = dateObject.toString().split(' ');
-    return `${time.slice(0, 1)} ${time.slice(2, 3)}`;
-  };
-
-  const getTime = (timestamp) => {
-    const milliseconds = timestamp * 1000;
-    const dateObject = new Date(milliseconds);
-    const time = dateObject.toString().split(' ');
-    return time[4]?.split('').slice(0, 5);
   };
 
   return (
