@@ -1,4 +1,7 @@
+//Libraries
 import { useState } from 'react';
+import { getTime } from '../../libs/dates';
+//Styles
 import './CurrentCard.css';
 
 const CurrentCard = ({ currentWeather, cityName }) => {
@@ -8,13 +11,6 @@ const CurrentCard = ({ currentWeather, cityName }) => {
   const weatherDescription = weather[0].main;
   const expandCard = () => {
     setdropdown(!dropdown);
-  };
-
-  const getTime = (timestamp) => {
-    const milliseconds = timestamp * 1000;
-    const dateObject = new Date(milliseconds);
-    const time = dateObject.toString().split(' ');
-    return time[4]?.split('').slice(0, 5);
   };
 
   return (

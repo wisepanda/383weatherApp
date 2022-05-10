@@ -15,9 +15,7 @@ const Card = ({
   const [dropdown, setdropdown] = useState(false);
   const { dt, sunrise, sunset, weather, temp } = weekday;
   const weatherDescription = weather[0].main;
-  const expandCard = () => {
-    setdropdown(!dropdown);
-  };
+  const expandCard = () => setdropdown(!dropdown);
 
   return (
     <>

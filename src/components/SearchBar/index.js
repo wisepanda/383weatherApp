@@ -1,20 +1,26 @@
-import './searchbar.css';
+//Libraries
 import { useState } from 'react';
+//Styles
+import './searchbar.css';
 
 const SearchBar = ({ fetchData }) => {
   const [userInput, setUserInput] = useState('');
 
-  function handleInput(e) {
-    setUserInput(e.target.value);
-  }
+  const handleInput = (e) => setUserInput(e.target.value);
 
-  function handleClick() {
+  const handleClick = () => {
     fetchData(userInput);
-  }
+    setUserInput('');
+  };
 
   return (
     <div className="searchbar">
-      <input type="text" placeholder="Enter city name" onChange={handleInput} />
+      <input
+        value={userInput}
+        type="text"
+        placeholder="Enter city name"
+        onChange={handleInput}
+      />
       <button onClick={() => handleClick()}>Search</button>
     </div>
   );

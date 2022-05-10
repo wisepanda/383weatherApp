@@ -1,6 +1,9 @@
-import './weeklist.css';
+//Components
 import Card from '../Card/index.js';
-export default function WeekList({ weekly }) {
+//Styles
+import './weeklist.css';
+
+const WeekList = ({ weekly }) => {
   return (
     <div className="weeklist">
       <h2> Weekly weather</h2>
@@ -9,4 +12,6 @@ export default function WeekList({ weekly }) {
       })}
     </div>
   );
-}
+};
+
+export default WeekList;
